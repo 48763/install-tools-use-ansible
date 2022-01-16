@@ -7,6 +7,7 @@
     - [應用安裝](#應用安裝)
     - [遠端連線設置](#遠端連線設置)
 - [應用部署](#應用部署)
+- [引用](#引用)
 
 ## 運行環境
 
@@ -67,3 +68,7 @@ $ ./deploy [host] [user]
 ```
 $ cat deploy_history
 ```
+
+## 引用
+
+- Github：[manbobo2002/nomad-consul](https://github.com/manbobo2002/nomad-consul)
