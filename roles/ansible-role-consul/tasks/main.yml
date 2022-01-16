@@ -45,6 +45,10 @@
   notify:
   - reload systemd
 
+- name: Create group
+  group:
+    name: consul
+
 - name: Add service user
   user:
     name: consul

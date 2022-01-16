@@ -151,6 +151,9 @@
   notify:
     - reload systemd
 
+- name: restart nomad
+  meta: flush_handlers
+
 - name: apply nomad jobs
   command: /usr/local/bin/nomad job run --detach countdash.nomad
   become: yes
