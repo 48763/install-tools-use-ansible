@@ -1,0 +1,5 @@
+---
+docker_install_script_url: https://get.docker.io
+
+docker_restart_handler_state: restarted
+

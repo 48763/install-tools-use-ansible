@@ -1,0 +1,24 @@
+---
+- name: Check if the Docker is already installed
+  stat: path=/etc/init.d/docker
+  register: service_status
+
+- name: According system type to install Docker-ce
+  shell: >
+    curl -fsSL {{ docker_install_script_url }} | sudo sh -
+  args:
+    warn: false
+  when: service_status.stat.exists == False
+
+- name: Ensure handlers are notified now to avoid firewall conflicts.
+  meta: flush_handlers
+
+- name: Ensure group "docker" exists
+  group:
+    name: docker
+    state: present
+
+- name: Add the user into docker group
+  user:
+    name: "{{ lookup('env','USER') }}"
+    group: docker

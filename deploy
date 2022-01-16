@@ -1,0 +1,26 @@
+#!/bin/bash
+dpkg -s ansible &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "Cannot find command ansible. Please install ansible."
+    exit 1
+fi
+
+if [ -z $2 ]; then
+    echo ""
+    echo "Usage: deploy host user"
+    echo ""
+    echo "Argument:"
+    echo ""
+    echo "	host is ip-address or hostname of target host."
+    echo "	User is user of target host."
+    exit 1
+fi
+
+cp host.template host
+sed -i 's/%%%host%%%/host/g; s/%%%user%%%/user/g;'  host
+
+ansible-playbook -i host main.yml --diff
+
+echo $(date) >> deploy_history
+cat host >> deploy_history
+rm host
