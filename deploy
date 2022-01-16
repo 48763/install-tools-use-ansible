@@ -17,7 +17,7 @@ if [ -z $2 ]; then
 fi
 
 cp host.template host
-sed -i 's/%%%host%%%/host/g; s/%%%user%%%/user/g;'  host
+sed -i 's/%%%host%%%/$1/g; s/%%%user%%%/$2/g;'  host
 
 ansible-playbook -i host main.yml --diff
 
