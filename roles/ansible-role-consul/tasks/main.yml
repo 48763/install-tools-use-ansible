@@ -45,6 +45,11 @@
   notify:
   - reload systemd
 
+- name: restart consul
+  systemd:
+    name: consul
+    state: restarted 
+
 - name: Create group
   group:
     name: consul
@@ -77,4 +82,4 @@
   notify:
   - restart consul
   with_items:
-    - consul.hcl
+  - consul.hcl
