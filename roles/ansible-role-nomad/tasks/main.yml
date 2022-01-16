@@ -151,11 +151,6 @@
   notify:
     - reload systemd
 
-- name: restart consul
-  systemd:
-    name: nomad
-    state: restarted 
-
 - name: apply nomad jobs
   command: /usr/local/bin/nomad job run --detach countdash.nomad
   become: yes

@@ -45,11 +45,6 @@
   notify:
   - reload systemd
 
-- name: restart consul
-  systemd:
-    name: consul
-    state: restarted 
-
 - name: Create group
   group:
     name: consul
