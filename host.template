@@ -1,2 +1,2 @@
 [avernus]
-%%%host_address%%% ansible_user=%%%user_name%%%
+%%%host%%% ansible_user=%%%user%%%
