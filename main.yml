@@ -1,5 +1,5 @@
 ---
-- hosts: avernust
+- hosts: avernus
   vars_files:
     - secrets.yml
   become: yes
